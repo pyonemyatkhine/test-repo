@@ -1,0 +1,21 @@
+<h1>Order List</h1>
+<!--Find me in app/views/orders/index.html.erb-->
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Ordered Time</th>
+			<th>Sum of Order Price</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@orders.each do |eachorder|%>
+			<tr>
+				<td><%=eachorder.created_at%></td>
+				<td><%=eachorder.order_total_price%></td>
+				<td><%=link_to 'Show',eachorder%></td>
+			</tr>
+		<%end%>
+	</tbody>
+</table>

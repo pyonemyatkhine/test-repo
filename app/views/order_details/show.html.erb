@@ -1,0 +1,25 @@
+<h1>Order Details Information</h1>
+<!--Find me in app/views/order_details/show.html.erb-->
+<p>
+	<strong>Order ID</strong>
+	<%=@detail.order_id%>
+</p>
+<p>
+        <strong>Product ID</strong>
+        <%=@detail.product_id%>
+</p>
+<p>
+        <strong>Product Name</strong>
+        <%=@detail.product.name%>
+</p>
+<p>
+        <strong>Order Count</strong>
+        <%=@detail.count%>
+</p>
+<p>
+        <strong>Sum of order price</strong>
+        <%=@detail.total_price%>
+</p>
+
+<%= link_to 'Back', order_details_path %>
+

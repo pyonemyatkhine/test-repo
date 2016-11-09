@@ -1,0 +1,30 @@
+<h1>Order Detail List</h1>
+<!--Find me in app/views/order_details/index.html.erb-->
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Order ID</th>
+			<th>Product ID</th>
+			<th>Product Name</th>
+			<th>Order count</th>
+			<th>Sum of order price</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<%@order_details.each do |detail|%>
+		<tr>
+			<td><%=detail.order_id%></td>
+			<td><%=detail.product_id%></td>
+			<td><%=detail.product.name%></td>
+			<td><%=detail.count%></td>
+			<td><%=detail.total_price%></td>
+			<td><%=link_to 'Show',detail%></td>
+			<td><%=link_to 'edit',edit_order_detail_path(detail)%>|<%=link_to 'Deletion', detail, method: :delete,data:{confirm:'Do you want to delete?'}%></td>
+		</tr>
+	<%end%>
+	</tbody>
+</table>
+<%=link_to "New Order Detail",new_order_detail_path%>

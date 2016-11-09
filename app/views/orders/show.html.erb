@@ -1,0 +1,32 @@
+<h1>Order Detail</h1>
+<!--Find me in app/views/orders/show.html.erb-->
+
+<table>
+	<tr>
+		<td>Order ID:</td>
+		<td><%=@detail.id%></td>
+	</tr>
+	<tr>
+		<td>Sum of order price:</td>
+		<td><%=@detail.order_total_price%></td>
+	</tr>
+</table>
+<table class="table">
+        <thead>
+                <tr>
+                        <th>Product Name</th>
+                        <th>Counts</th>
+                        <th>Total Prices</th>
+                </tr>
+        </thead>
+        <tbody>
+        <%@detail.order_details.each do |detailitem|%>
+                <tr>
+                        <td><%=detailitem.product.name%></td>
+                        <td><%=detailitem.count%></td>
+                        <td><%=detailitem.total_price%></td>
+		</tr>
+	<%end%>
+	</tbody>
+</table>
+<%= link_to 'All Orders',orders_index_path%>

@@ -1,0 +1,19 @@
+<%=form_for @order,:html=>{:class=>'form-horizontal'} do |f|%>
+	<%=f.fields_for :order_details do |od|%>
+	<div class="form-group">
+		<div class="col-xs-2"><%=od.label :product_id, :class=>"control-label"%></div>
+		<div class="col-xs-10">
+			<%=od.collection_select(:product_id,@products,:id,:name,:class=>"form-control")%>
+			</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-2"><%=od.label :count, :class=>"control-label"%></div>
+		<div class="col-xs-10"><%=od.text_field :count, :class=>"form-control"%></div>
+	</div>
+	<%end%>
+
+	<div class="actions">
+		<%=f.submit%>
+	</div>
+<%end%>
+</div>
